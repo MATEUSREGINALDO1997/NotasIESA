@@ -1,11 +1,11 @@
 
 <?php
 
-header("Content-Type: text/html; charset=utf-8", true); //UTF8 Para acentuação ajax php
+header("Content-Type: text/html; charset=utf-8", true); //UTF8 Para acentuação sem boom
 
 $errorMSG = "";
 
-// NAME
+// N1
 if (empty($_POST["n1"])) {
     $errorMSG = "n1 vazio";
     $n1 = 0;
@@ -13,7 +13,7 @@ if (empty($_POST["n1"])) {
     $n1 = $_POST["n1"];
 }
 
-// EMAIL
+// N2
 if (empty($_POST["n2"])) {
     $errorMSG .= "n2 vazio";
     $n2 = 0;
@@ -22,9 +22,9 @@ if (empty($_POST["n2"])) {
     
 }
 
-// MESSAGE
+// N3
 if (empty($_POST["n3"])) {
-    $errorMSG = "Campo vazio";
+    $errorMSG = "n3 vazio";
     $n3 = 0;
     $calculoreprovado = (21 - ($n1+ $n2));
 //   $calculoaprovado =   (($n1 * 0.35) + ($n2 * 0.35)) + $n3;
@@ -54,40 +54,8 @@ if(isset($somaPontosqueFaltam)){
     if($calculoreprovado < 10){
     echo $somaPontosqueFaltam ;    
     } else {
-        echo 'Mesmo que você tire a nota máxima na substitutiva, infelizmente você ainda reprovaria!';    
+        echo 'Mesmo que você tire a nota máxima na N3, infelizmente você ainda teria que fazer a prova substitutiva!';    
     }
 }
 }
-
-
-
-//
-//$EmailTo = "emailaddress@test.com";
-//$Subject = "New Message Received";
-//
-//// prepare email body text
-//$Body = "";
-//$Body .= "Name: ";
-//$Body .= $name;
-//$Body .= "\n";
-//$Body .= "Email: ";
-//$Body .= $email;
-//$Body .= "\n";
-//$Body .= "Message: ";
-//$Body .= $message;
-//$Body .= "\n";
-//
-//// send email
-//$success = mail($EmailTo, $Subject, $Body, "From:".$email);
-//
-//// redirect to success page
-//if ($success && $errorMSG == ""){
-//   echo "success";
-//}else{
-//    if($errorMSG == ""){
-//        echo "Something went wrong :(";
-//    } else {
-//        echo $errorMSG;
-//    }
-//}
 ?>
